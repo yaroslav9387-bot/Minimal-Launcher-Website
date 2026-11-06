@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101114">
+  <title>Minimal Launcher — Minecraft Launcher</title>
+  <meta name="description" content="Minimal Launcher — удобный минималистичный лаунчер Minecraft.">
+  <style>
+    :root{color-scheme:dark;--bg:#101114;--panel:#181a20;--muted:#a6a8b2;--yellow:#ffd43b;--line:#2a2d35}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}
+    body{margin:0;background:radial-gradient(ellipse at 50% -20%,#292719 0,transparent 42%),var(--bg);color:#f5f5f6;font-family:Inter,Segoe UI,Arial,sans-serif}
+    a{color:inherit;text-decoration:none}.wrap{width:min(1100px,calc(100% - 40px));margin:auto}
+    header{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ffffff12}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.2px}
+    .logo{width:38px;height:38px;border-radius:11px;background:var(--yellow);color:#171717;display:grid;place-items:center;font-size:22px;font-weight:900}
+    nav{display:flex;gap:28px;color:#c6c7ce;font-size:14px}nav a:hover{color:var(--yellow)}
+    .hero{padding:100px 0 76px;text-align:center}
+    .pill{display:inline-flex;gap:8px;align-items:center;border:1px solid #ffffff20;background:#ffffff08;border-radius:30px;padding:8px 13px;color:#d4d4d8;font-size:13px}
+    .dot{width:7px;height:7px;border-radius:50%;background:var(--yellow);box-shadow:0 0 12px var(--yellow)}
+    h1{font-size:clamp(44px,8vw,78px);line-height:.98;letter-spacing:-3px;margin:25px 0 18px}
+    h1 span{color:var(--yellow)}.lead{max-width:620px;margin:0 auto;color:var(--muted);font-size:18px;line-height:1.65}
+    .actions{display:flex;gap:13px;justify-content:center;flex-wrap:wrap;margin:34px 0 18px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 24px;border-radius:12px;font-weight:800;transition:.2s}
+    .primary{background:var(--yellow);color:#171717;box-shadow:0 8px 30px #ffd43b20}.primary:hover{transform:translateY(-2px);filter:brightness(1.06)}
+    .secondary{border:1px solid var(--line);background:#ffffff08}.secondary:hover{border-color:#777}
+    .hint{font-size:12px;color:#777985}
+    .preview{margin:38px auto 0;max-width:900px;border:1px solid #ffffff20;border-radius:18px;padding:10px;background:#ffffff08;box-shadow:0 30px 90px #0008}
+    .screen{min-height:300px;border-radius:11px;background:linear-gradient(135deg,#20232b,#121419);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+    .screen:before,.screen:after{content:"";position:absolute;border:1px solid #ffffff0c;border-radius:50%;width:380px;height:380px}
+    .screen:after{width:520px;height:520px}
+    .mock{position:relative;z-index:1;width:min(570px,85%);padding:26px;border:1px solid #ffffff20;border-radius:15px;background:#17191fe8;box-shadow:0 20px 60px #0008}
+    .mocktop{display:flex;justify-content:space-between;color:#aeb0b9;font-size:12px;margin-bottom:48px}
+    .mocktitle{font-size:30px;font-weight:800}.mocksub{color:#8e919c;font-size:13px;margin-top:7px}
+    .mockbottom{display:flex;justify-content:space-between;align-items:center;margin-top:42px}
+    .version{color:#b9bbc3;font-size:12px}.play{background:var(--yellow);color:#171717;padding:12px 28px;border-radius:8px;font-weight:900}
+    section{padding:66px 0}.section-title{text-align:center;font-size:32px;margin:0 0 12px}.section-lead{text-align:center;color:var(--muted);margin:0 auto 32px;max-width:560px;line-height:1.6}
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .card{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:24px}
+    .ico{font-size:24px;margin-bottom:18px}.card h3{margin:0 0 9px;font-size:17px}.card p{margin:0;color:var(--muted);font-size:14px;line-height:1.6}
+    .download{border:1px solid #51471d;background:linear-gradient(135deg,#272416,#191a1f);border-radius:20px;text-align:center;padding:42px 20px}
+    .download h2{font-size:30px;margin:0 0 10px}.download p{color:var(--muted);margin:0 0 24px}
+    footer{border-top:1px solid #ffffff12;padding:25px 0;color:#777985;font-size:12px}
+    @media(max-width:700px){nav{gap:14px;font-size:12px}.hero{padding:70px 0 50px}.features{grid-template-columns:1fr}.screen{min-height:250px}h1{letter-spacing:-2px}.mockbottom{margin-top:28px}}
+  </style>
+</head>
+<body>
+<header class="wrap">
+  <a class="brand" href="#"><span class="logo">M</span><span>MINIMAL LAUNCHER</span></a>
+  <nav><a href="#features">Возможности</a><a href="#download">Скачать</a></nav>
+</header>
+<main>
+  <section class="hero wrap">
+    <div class="pill"><span class="dot"></span> Лаунчер Minecraft</div>
+    <h1>Меньше лишнего.<br><span>Больше игры.</span></h1>
+    <p class="lead">Minimal Launcher — простой и современный способ запускать Minecraft. Ничего лишнего в интерфейсе: выбери версию и нажми «Играть».</p>
+    <div class="actions">
+      <a class="btn primary" href="#download">↓ Скачать лаунчер</a>
+      <a class="btn secondary" href="#features">Подробнее</a>
+    </div>
+    <div class="hint">Windows • Удобный интерфейс • Выбор версий</div>
+    <div class="preview">
+      <div class="screen">
+        <div class="mock">
+          <div class="mocktop"><b>MINIMAL LAUNCHER</b><span>Настройки　⋯</span></div>
+          <div class="mocktitle">Добро пожаловать</div>
+          <div class="mocksub">Готов к следующему приключению?</div>
+          <div class="mockbottom"><span class="version">Версия　1.21.4　⌄</span><span class="play">ИГРАТЬ</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="features" class="wrap">
+    <h2 class="section-title">Всё нужное — под рукой</h2>
+    <p class="section-lead">Минималистичный интерфейс, чтобы запуск игры был быстрым и понятным.</p>
+    <div class="features">
+      <article class="card"><div class="ico">⚡</div><h3>Простой запуск</h3><p>Выбирай установленную версию Minecraft и запускай игру в пару нажатий.</p></article>
+      <article class="card"><div class="ico">▦</div><h3>Выбор версий</h3><p>Удобный список версий прямо на главном экране лаунчера.</p></article>
+      <article class="card"><div class="ico">◇</div><h3>Моды Modrinth</h3><p>Планируется удобный доступ к модам и дополнениям из Modrinth.</p></article>
+    </div>
+  </section>
+  <section id="download" class="wrap">
+    <div class="download">
+      <h2>Готов играть?</h2>
+      <p>Скачай Minimal Launcher для Windows.</p>
+      <a class="btn primary" href="downloads/Minimal-Launcher-0.1.0-x64-setup.exe" id="downloadBtn" download>↓ Скачать Minimal Launcher</a>
+      <div class="hint" style="margin-top:14px">Версия 0.1.0 • Windows x64 • Установщик</div>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap">© 2026 Minimal Launcher. Неофициальный лаунчер для Minecraft.</div></footer>
+</body>
+</html>
